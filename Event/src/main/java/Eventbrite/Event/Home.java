@@ -39,7 +39,8 @@ public class Home {
 					break;
 				}
 				case(3): {
-					eventBrowser();
+					EventBrowser();
+					break;
 				}
 				case(4): {
 					showMenu();
