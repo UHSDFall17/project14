@@ -1,4 +1,6 @@
-package Eventbrite;
+package Eventbrite.Event;
+
+
 import java.util.Scanner;
 
 import java.util.Scanner;
@@ -14,8 +16,8 @@ public class loginPage {
 		String password = input.next();
 		System.out.println("===================================");
 		
-		Home homepage = new Home();
-		homepage.showMenu();
+		
+		Home.showMenu();
 	}
 
 }
