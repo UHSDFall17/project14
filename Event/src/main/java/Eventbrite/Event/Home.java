@@ -15,8 +15,9 @@ public class Home {
 		System.out.println("Select An Option                           ");
 		System.out.println("1: Sign Up                                 ");
 		System.out.println("2: Log In                                  ");
-		System.out.println("3: Cancel (Return to Main Menu)            ");
-		System.out.println("4: Exit Application                        ");
+		System.out.println("3: Browse Events                           ")
+		System.out.println("4: Cancel (Return to Main Menu)            ");
+		System.out.println("5: Exit Application                        ");
 		System.out.println("===========================================");
 		
 		input = new Scanner(System.in);
@@ -38,10 +39,13 @@ public class Home {
 					break;
 				}
 				case(3): {
+					eventBrowser();
+				}
+				case(4): {
 					showMenu();
 					break;
 				}
-				case(4): {
+				case(5): {
 					return;
 				}
 				default:
