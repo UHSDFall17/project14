@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class EventBrowser 
 {
-	public static void main(String[] args)
+	public void showMenu()//Changed from main method from test to just a method
 	{
 		int myChoice;
 		Random rand = new Random();
