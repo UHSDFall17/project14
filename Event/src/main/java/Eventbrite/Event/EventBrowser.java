@@ -120,8 +120,7 @@ public class EventBrowser
 			System.out.println("Enter the event you would like to view");
 			myChoice = keyboard.nextInt();
 			
-			Event musicEvent = new Event();
-			musicEvent.displayEvent(myChoice,musicArray[myChoice-1]);
+			//removed here
 		}
 			
 		else if(Choice == 2)
@@ -131,8 +130,7 @@ public class EventBrowser
 			System.out.println("Enter the event you would like to view");
 			myChoice = keyboard.nextInt();
 			
-			Event artEvent = new Event();
-			artEvent.displayEvent(myChoice,artArray[myChoice-1]);
+			//removed here
 		}
 		else if(Choice == 3)
 		{
@@ -141,8 +139,7 @@ public class EventBrowser
 			System.out.println("Enter the event you would like to view");
 			myChoice = keyboard.nextInt();
 			
-			Event foodEvent = new Event();
-			foodEvent.displayEvent(myChoice,foodArray[myChoice-1]);
+			//removed here
 		}
 		keyboard.close();
 	}
