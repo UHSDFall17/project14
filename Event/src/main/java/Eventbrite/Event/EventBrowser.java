@@ -1,4 +1,4 @@
-package SD.Project.EventBrowser;
+package Eventbrite.Event;
 
 import java.util.Scanner;
 import java.util.Random;
