@@ -8,12 +8,12 @@ public class Home {
 	private static Scanner input;
 
 	public static void main(String args[]) {
-		/* for testing EventDB
+		//for testing EventDB
 		 
-		EventDB.getConnection();
-		EventDB.addUser("139lenox", "", "le", "1234", "blah@gmail.com");
-		EventDB.closeConnection();
-		*/
+		//EventDB.getConnection();
+		//EventDB.addUser("139lenox", "", "le", "1234", "blah@gmail.com");
+		//EventDB.closeConnection();
+		
 		showMenu();	
 	}
 	

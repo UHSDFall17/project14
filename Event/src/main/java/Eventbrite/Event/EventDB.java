@@ -22,7 +22,7 @@ public class EventDB {
 		try 
 		{
 			// Establish connection to MySQL server.
-			 con = DriverManager.getConnection(connectionString,"root","root");
+			 con = DriverManager.getConnection(connectionString,"root","");
 			 System.out.println("Connection successful.");
 			 // Create a Statement object which holds SQL statements. 
 			 st = con.createStatement();
@@ -61,6 +61,23 @@ public class EventDB {
 		{
 			System.out.println("EXCEPTION: " + e.getMessage());
 		}
+	}
+	
+	public static void deleteUser(String username)
+	{
+		query = "DELETE FROM user " + 
+				"WHERE username=" + "'" + username + "'";
+		try
+		{
+			st.executeUpdate(query);
+			
+		}
+		catch(Exception e)
+		{
+			System.out.println("EXCEPTION: " + e.getMessage());
+		}
+		
+		
 	}
 
 }
