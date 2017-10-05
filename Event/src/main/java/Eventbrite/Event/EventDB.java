@@ -11,7 +11,7 @@ public class EventDB {
 	// Temporarily holds SQL statements to pass to st.
 	static private String query;
 	// Holds the results of queries.
-	static private ResultSet results;
+	static private ResultSet result;
 	
 	private EventDB()
 	{
@@ -38,6 +38,7 @@ public class EventDB {
 		try {
 			con.close();
 			st.close();
+			System.out.println("Connection closed.");
 		}
 		catch(Exception e)
 		{
@@ -96,8 +97,46 @@ public class EventDB {
 		{
 			System.out.println("EXCEPTION: " + e.getMessage());
 		}
-		
-		
 	}
+	
+	public static String getFirstName(String username)
+	{
+		query = "SELECT firstName FROM user WHERE username=" + "'" + username + "'";
+		try 
+		{
+			result = st.executeQuery(query);
+			if(result.next())
+			{
+				return result.getString("firstName");
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("EXCEPTION: " + e.getMessage());
+		}
+		
+		return "";
+	}
+	
+	public static String getLastName(String username)
+	{
+		query = "SELECT lastName FROM user WHERE username=" + "'" + username + "'";
+		try 
+		{
+			result = st.executeQuery(query);
+			if(result.next())
+			{
+				return result.getString("lastName");
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("EXCEPTION: " + e.getMessage());
+		}
+		
+		return "";
+	}
+	
+	
 
 }
