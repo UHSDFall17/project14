@@ -22,7 +22,7 @@ public class EventDB {
 		try 
 		{
 			// Establish connection to MySQL server.
-			 con = DriverManager.getConnection(connectionString,"root","");
+			 con = DriverManager.getConnection(connectionString,"guest","guest");
 			 System.out.println("Connection successful.");
 			 // Create a Statement object which holds SQL statements. 
 			 st = con.createStatement();
@@ -45,7 +45,27 @@ public class EventDB {
 		}
 	}
 	
-	public static void addUser(String username, String firstName,
+	public static void createUser(String username, String password)
+	{
+		query = "CREATE USER " + username + " IDENTIFIED BY " + "'" + password + "';";
+		String grant1 = "GRANT SELECT, UPDATE, DELETE, INSERT ON eventbritedb.* TO " + username +";";
+		String grant2 = "GRANT CREATE USER ON *.* TO " + username + ";";
+		try
+		{
+			//Execute multiple line statements.
+			st.addBatch(query);
+			st.addBatch(grant1);
+			st.addBatch(grant2);
+			st.executeBatch();
+			
+		}
+		catch(Exception e)
+		{
+			System.out.println("EXCEPTION: " + e.getMessage());
+		}
+	}
+	
+	public static void addUserInfo(String username, String firstName,
 			String lastName, String password, String email)
 	{
 		// SQL statements
