@@ -60,93 +60,93 @@ public class EventDB {
 		}
 	}
 	
-	public static void createUser(String username, String password)
+	public static void createUser(String username, String password) throws SQLException
 	{
 		query = "CREATE USER " + username + " IDENTIFIED BY " + "'" + password + "';";
 		String grant1 = "GRANT SELECT, UPDATE, DELETE, INSERT ON eventbritedb.* TO " + username +";";
 		String grant2 = "GRANT CREATE USER ON *.* TO " + username + ";";
-		try
-		{
+//		try
+//		{
 			//Execute multiple line statements.
 			st.addBatch(query);
 			st.addBatch(grant1);
 			st.addBatch(grant2);
 			st.executeBatch();
 			
-		}
-		catch(Exception e)
-		{
-			System.out.println("EXCEPTION: " + e.getMessage());
-		}
+//		}
+//		catch(Exception e)
+//		{
+//			System.out.println("EXCEPTION: " + e.getMessage());
+//		}
 	}
 	
 	public static void addUserInfo(String username, String firstName,
-			String lastName, String password, String email)
+			String lastName, String password, String email) throws SQLException
 	{
 		// SQL statements
 		query = "INSERT INTO user"
 				+ " VALUES ('" + username + "','" + firstName + "','" + lastName + "','" + password +
 				"','" + email + "')";
-		try 
-		{
+//		try 
+//		{
 			// Execute SQL statements in the MySQL server.
 			st.executeUpdate(query);
-		}
-		catch(Exception e)
-		{
-			System.out.println("EXCEPTION: " + e.getMessage());
-		}
+//		}
+//		catch(Exception e)
+//		{
+//			System.out.println("EXCEPTION: " + e.getMessage());
+//		}
 	}
 	
-	public static void deleteUser(String username)
+	public static void deleteUser(String username) throws SQLException
 	{
 		query = "DELETE FROM user " + 
 				"WHERE username=" + "'" + username + "'";
-		try
-		{
+//		try
+//		{
 			st.executeUpdate(query);
 			
-		}
-		catch(Exception e)
-		{
-			System.out.println("EXCEPTION: " + e.getMessage());
-		}
+//		}
+//		catch(Exception e)
+//		{
+//			System.out.println("EXCEPTION: " + e.getMessage());
+//		}
 	}
 	
-	public static String getFirstName(String username)
+	public static String getFirstName(String username) throws SQLException
 	{
 		query = "SELECT firstName FROM user WHERE username=" + "'" + username + "'";
-		try 
-		{
+//		try 
+//		{
 			result = st.executeQuery(query);
 			if(result.next())
 			{
 				return result.getString("firstName");
 			}
-		}
-		catch(Exception e)
-		{
-			System.out.println("EXCEPTION: " + e.getMessage());
-		}
+//		}
+//		catch(Exception e)
+//		{
+//			System.out.println("EXCEPTION: " + e.getMessage());
+//		}
 		
 		return "";
 	}
 	
-	public static String getLastName(String username)
+	public static String getLastName(String username) throws SQLException
 	{
 		query = "SELECT lastName FROM user WHERE username=" + "'" + username + "'";
-		try 
-		{
+//		try 
+//		{
 			result = st.executeQuery(query);
 			if(result.next())
 			{
 				return result.getString("lastName");
 			}
-		}
-		catch(Exception e)
-		{
-			System.out.println("EXCEPTION: " + e.getMessage());
-		}
+//		}
+//		catch(Exception e)
+//		{
+//			System.out.println("EXCEPTION: " + e.getMessage());
+//		}
 		
 		return "";
 	}
