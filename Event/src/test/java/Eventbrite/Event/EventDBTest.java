@@ -37,18 +37,18 @@ public class EventDBTest {
 
 //	@Test
 //	public void testCloseConnection() {
-//		fail("Not yet implemented");
+//		
 //	}
 
 	@Test
 	public void testCreateUser() throws SQLException {
-		thrown.expect(Exception.class);
+		thrown.expect(SQLException.class);
 		EventDB.createUser("guest", "guest");
 	}
 
 	@Test
 	public void testAddUserInfo() throws SQLException {
-		thrown.expect(Exception.class);
+		thrown.expect(SQLException.class);
 		EventDB.addUserInfo("junit4", "bob", "saget", "junit4", "fdklkafk@gmail.com");
 	}
 
@@ -63,24 +63,13 @@ public class EventDBTest {
 	}
 //
 	@Test
-	public void testGetFirstName(){
-		try {
-		EventDB.getFirstName("hellohellohellohello");
-		}
-		catch(SQLException e)
-		{
-			fail("SQL Exception");
-		}
+	public void testGetFirstName() throws SQLException{
+		assertEquals("bob",EventDB.getFirstName("junit"));
 	}
 //
 	@Test
-	public void testGetLastName(){
-		try {
-		EventDB.getLastName("fdsafddlkrdsaf");
-		}
-		catch(SQLException e){
-			fail("SQL Exception");
-		}
+	public void testGetLastName() throws SQLException{
+		assertEquals("saget",EventDB.getLastName("junit"));
 	}
 
 }

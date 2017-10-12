@@ -3,7 +3,7 @@ package Eventbrite.Event;
 import java.sql.*;
 
 public class EventDB {
-	static private String connectionString = "jdbc:mysql://localhost:3306/eventbritedb";
+	static private String connectionString = "jdbc:mysql://172.25.64.222:3306/eventbritedb";
 	// Needed to establish a connection with the MySQL server.
 	static private Connection con;
 	// Takes SQL statements and executes them.
