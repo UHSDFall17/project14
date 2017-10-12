@@ -12,12 +12,10 @@ public class Event
 	private int capacity;								//total capacity of event
 	private User host;
 	private Boolean inviteOnly;
-	ArrayList<String> tags;								//tags like music, theater..
 	
 	public Event()
 	{
 		eventDate = Calendar.getInstance();
-		tags = new ArrayList<String>();
 	}
 	
 	public String getEventName()
@@ -58,11 +56,6 @@ public class Event
 	public String getDescription()
 	{
 		return description;
-	}
-	
-	public ArrayList<String> getTags()
-	{
-		return tags;
 	}
 	
 	public void setEventName(String eventName)
@@ -106,9 +99,4 @@ public class Event
 		this.inviteOnly = inviteOnly;
 	}
 	
-	public void addTag(String tag)
-	{
-		tags.add(tag);
-	}
-
 }
