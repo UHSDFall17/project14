@@ -8,8 +8,13 @@ public class Home {
 	private static Scanner input;
 
 	public static void main(String args[]) {
-		//for testing EventDB	 
+		//for testing EventDB	
+		try {
 		EventDB.getConnection("guest","guest");
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 //		System.out.println(EventDB.getFirstName("green"));
 //		System.out.println(EventDB.getLastName("green"));
 //		EventDB.createUser("test4","tea");

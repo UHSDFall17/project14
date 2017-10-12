@@ -16,7 +16,7 @@ public class EventDBTest {
 	public ExpectedException thrown = ExpectedException.none();
 	
 	@BeforeClass
-	public static void initialize() {
+	public static void initialize() throws SQLException {
 	EventDB.getConnection("guest","guest");
 	}
 	
@@ -53,18 +53,34 @@ public class EventDBTest {
 	}
 
 	@Test
-	public void testDeleteUser() throws SQLException{
+	public void testDeleteUser(){
+		try {
 		EventDB.deleteUser("4327494798327483749832749832478932479328479328473928479328");
+		}
+		catch(SQLException e){
+			fail("SQL Exception");
+		}
 	}
 //
 	@Test
-	public void testGetFirstName() throws SQLException{
+	public void testGetFirstName(){
+		try {
 		EventDB.getFirstName("hellohellohellohello");
+		}
+		catch(SQLException e)
+		{
+			fail("SQL Exception");
+		}
 	}
 //
 	@Test
-	public void testGetLastName() throws SQLException{
+	public void testGetLastName(){
+		try {
 		EventDB.getLastName("fdsafddlkrdsaf");
+		}
+		catch(SQLException e){
+			fail("SQL Exception");
+		}
 	}
 
 }
