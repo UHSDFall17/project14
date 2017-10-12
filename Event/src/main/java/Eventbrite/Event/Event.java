@@ -13,13 +13,11 @@ public class Event
 	private User host;
 	private Boolean inviteOnly;
 	ArrayList<String> tags;								//tags like music, theater..
-	ArrayList<User> usersAttending;
 	
 	public Event()
 	{
 		eventDate = Calendar.getInstance();
 		tags = new ArrayList<String>();
-		usersAttending = new ArrayList<User>();
 	}
 	
 	public String getEventName()
@@ -67,13 +65,6 @@ public class Event
 		return tags;
 	}
 	
-	public int ticketsLeft()
-	{
-		int ticketsLeft = capacity - usersAttending.size();
-		
-		return ticketsLeft;
-	}
-	
 	public void setEventName(String eventName)
 	{
 		this.eventName = eventName;
@@ -118,18 +109,6 @@ public class Event
 	public void addTag(String tag)
 	{
 		tags.add(tag);
-	}
-	
-	//add a user to userAttending list
-	public Boolean addUser(User newUser)
-	{
-		if(usersAttending.size() < capacity)
-		{
-			usersAttending.add(newUser);
-			return true;
-		}
-		else
-			return false;
 	}
 
 }
