@@ -33,6 +33,20 @@ public class EventDB {
 		}
 	}
 	
+	public static void getConnection(String username, String password)
+	{
+		try 
+		{
+			con = DriverManager.getConnection(connectionString,username,password);
+			System.out.println("Connection successful.");
+			st = con.createStatement();
+		}
+		catch(Exception e)
+		{
+			System.out.println("EXCEPTION: " + e.getMessage());
+		}
+	}
+	
 	public static void closeConnection()
 	{
 		try {

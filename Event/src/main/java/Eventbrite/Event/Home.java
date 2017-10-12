@@ -9,7 +9,7 @@ public class Home {
 
 	public static void main(String args[]) {
 		//for testing EventDB	 
-		EventDB.getConnection();
+		EventDB.getConnection("guest","guest");
 		System.out.println(EventDB.getFirstName("green"));
 		System.out.println(EventDB.getLastName("green"));
 //		EventDB.createUser("test4","tea");
