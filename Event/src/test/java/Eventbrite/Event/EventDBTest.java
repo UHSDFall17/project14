@@ -16,7 +16,7 @@ public class EventDBTest {
 	public ExpectedException thrown = ExpectedException.none();
 	
 	@BeforeClass
-	public static void initialize() throws SQLException {
+	public static void initialize() throws SQLException{
 	EventDB.getConnection("guest","guest");
 	}
 	

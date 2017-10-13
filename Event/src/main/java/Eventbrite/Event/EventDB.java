@@ -3,7 +3,7 @@ package Eventbrite.Event;
 import java.sql.*;
 
 public class EventDB {
-	static private String connectionString = "jdbc:mysql://172.25.64.222:3306/eventbritedb";
+	static private String connectionString = "jdbc:mysql://localhost:3306/eventbritedb";
 	// Needed to establish a connection with the MySQL server.
 	static private Connection con;
 	// Takes SQL statements and executes them.
@@ -35,16 +35,9 @@ public class EventDB {
 	
 	public static void getConnection(String username, String password) throws SQLException
 	{
-//		try 
-//		{
 			con = DriverManager.getConnection(connectionString,username,password);
 			System.out.println("Connection successful.");
 			st = con.createStatement();
-//		}
-//		catch(Exception e)
-//		{
-//			System.out.println("EXCEPTION: " + e.getMessage());
-//		}
 	}
 	
 	public static void closeConnection()
@@ -65,19 +58,11 @@ public class EventDB {
 		query = "CREATE USER " + username + " IDENTIFIED BY " + "'" + password + "';";
 		String grant1 = "GRANT SELECT, UPDATE, DELETE, INSERT ON eventbritedb.* TO " + username +";";
 		String grant2 = "GRANT CREATE USER ON *.* TO " + username + ";";
-//		try
-//		{
-			//Execute multiple line statements.
-			st.addBatch(query);
-			st.addBatch(grant1);
-			st.addBatch(grant2);
-			st.executeBatch();
-			
-//		}
-//		catch(Exception e)
-//		{
-//			System.out.println("EXCEPTION: " + e.getMessage());
-//		}
+		//Execute multiple line statements.
+		st.addBatch(query);
+		st.addBatch(grant1);
+		st.addBatch(grant2);
+		st.executeBatch();
 	}
 	
 	public static void addUserInfo(String username, String firstName,
@@ -87,67 +72,41 @@ public class EventDB {
 		query = "INSERT INTO user"
 				+ " VALUES ('" + username + "','" + firstName + "','" + lastName + "','" + password +
 				"','" + email + "')";
-//		try 
-//		{
-			// Execute SQL statements in the MySQL server.
-			st.executeUpdate(query);
-//		}
-//		catch(Exception e)
-//		{
-//			System.out.println("EXCEPTION: " + e.getMessage());
-//		}
+
+		// Execute SQL statements in the MySQL server.
+		st.executeUpdate(query);
 	}
 	
 	public static void deleteUser(String username) throws SQLException
 	{
 		query = "DELETE FROM user " + 
 				"WHERE username=" + "'" + username + "'";
-//		try
-//		{
-			st.executeUpdate(query);
-			
-//		}
-//		catch(Exception e)
-//		{
-//			System.out.println("EXCEPTION: " + e.getMessage());
-//		}
+		
+		st.executeUpdate(query);
 	}
 	
 	public static String getFirstName(String username) throws SQLException
 	{
 		query = "SELECT firstName FROM user WHERE username=" + "'" + username + "'";
-//		try 
-//		{
+
 			result = st.executeQuery(query);
 			if(result.next())
 			{
 				return result.getString("firstName");
 			}
-//		}
-//		catch(Exception e)
-//		{
-//			System.out.println("EXCEPTION: " + e.getMessage());
-//		}
-		
+			
 		return "";
 	}
 	
 	public static String getLastName(String username) throws SQLException
 	{
 		query = "SELECT lastName FROM user WHERE username=" + "'" + username + "'";
-//		try 
-//		{
-			result = st.executeQuery(query);
-			if(result.next())
-			{
-				return result.getString("lastName");
-			}
-//		}
-//		catch(Exception e)
-//		{
-//			System.out.println("EXCEPTION: " + e.getMessage());
-//		}
+		result = st.executeQuery(query);
 		
+		if(result.next())
+		{
+			return result.getString("lastName");
+		}
 		return "";
 	}
 	
