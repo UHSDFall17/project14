@@ -6,8 +6,9 @@ import java.util.ArrayList;
 
 public class Event 
 {
-	private String eventName, location, description;
-	private Calendar eventDate;
+	private String eventName, location, description, eventType;
+	private Calendar startDateTime;
+	private Calendar endDateTime;
 	private double ticketPrice;
 	private int capacity;								//total capacity of event
 	private User host;
@@ -15,7 +16,8 @@ public class Event
 	
 	public Event()
 	{
-		eventDate = Calendar.getInstance();
+		startDateTime = Calendar.getInstance();
+		endDateTime = Calendar.getInstance();
 	}
 	
 	public String getEventName()
@@ -23,9 +25,14 @@ public class Event
 		return eventName;
 	}
 	
-	public Calendar getDate()
+	public Calendar getStartDateTime()
 	{
-		return eventDate;
+		return startDateTime;
+	}
+	
+	public Calendar getEndDateTime()
+	{
+		return endDateTime;
 	}
 	
 	public String getLocation()
@@ -58,14 +65,24 @@ public class Event
 		return description;
 	}
 	
+	public String getEventType()
+	{
+		return eventType;
+	}
+	
 	public void setEventName(String eventName)
 	{
 		this.eventName = eventName;
 	}
 
-	public void setDate(int year, int month, int day, int hour, int minute)
+	public void setStartDateTime(int year, int month, int day, int hour, int minute)
 	{
-		eventDate.set(year,month,day,hour,minute);
+		startDateTime.set(year,month,day,hour,minute);
+	}
+	
+	public void setEndDateTime(int year, int month, int day, int hour, int minute)
+	{
+		endDateTime.set(year,month,day,hour,minute);
 	}
 	
 	public void setLocation(String location)
@@ -97,6 +114,11 @@ public class Event
 	public void setInviteOnly(Boolean inviteOnly)
 	{
 		this.inviteOnly = inviteOnly;
+	}
+	
+	public void setEventType(String eventType)
+	{
+		this.eventType = eventType;
 	}
 	
 }
