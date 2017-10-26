@@ -110,6 +110,36 @@ public class EventDB {
 		return "";
 	}
 	
+	public static void createEvent() throws SQLException
+	{
+		
+	}
+	
+	public static String getCurrentUser() throws SQLException
+	{
+		query = "SELECT current_user";
+		result = st.executeQuery(query);
+		
+		String nameResult = "";
+		String username = "";
+		
+		if(result.next())
+		{
+			nameResult = result.getString("current_user");
+		}
+		for(int i = 0; i < nameResult.length(); i++)
+		{
+			if(nameResult.charAt(i) == '@')
+				break;
+			else
+				username += nameResult.charAt(i);
+		}
+		
+		return username;
+	}
+	
+	
+	
 	
 
 }

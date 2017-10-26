@@ -12,8 +12,9 @@ public class Home {
 		try {
 		EventDB.getConnection("guest","guest");
 		//EventDB.createUser("test6", "test6");
-		//EventDB.addUserInfo("test6", "guest", "brolic", "test6", "smiffnwessun");
-		System.out.println(EventDB.getFirstName("test6"));
+		//EventDB.addUserInfo("root", "bobbito", "bobberito", "root", "abcd@abcedef.com");
+		//System.out.println(EventDB.getFirstName("test6"));
+		System.out.println(EventDB.getCurrentUser());
 		}
 		catch(Exception e) {
 			System.out.println(e.getMessage());
