@@ -11,19 +11,16 @@ public class Home {
 		//for testing EventDB	
 		try {
 		EventDB.getConnection("guest","guest");
-		//EventDB.createUser("test6", "test6");
-		//EventDB.addUserInfo("root", "bobbito", "bobberito", "root", "abcd@abcedef.com");
-		//System.out.println(EventDB.getFirstName("test6"));
-		System.out.println(EventDB.getCurrentUser());
+//		EventDB.createUser("test6", "test6");
+//		EventDB.addUserInfo("root", "bobbito", "bobberito", "root", "abcd@abcedef.com");
+//		System.out.println(EventDB.getFirstName("test6"));
+//		System.out.println(EventDB.getCurrentUser());
+//		EventDB.deleteUser("test3");
+//		EventDB.deleteUserInfo("junit4");
 		}
 		catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
-//	System.out.println(EventDB.getFirstName("dsadaslk"));
-//		System.out.println(EventDB.getLastName("green"));
-//		EventDB.createUser("test5","test5");
-//		EventDB.addUserInfo("green", "guest", "brolic", "tea", "smiffnwessun");
 		
 		showMenu();	
 		EventDB.closeConnection();

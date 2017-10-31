@@ -53,6 +53,7 @@ public class EventDB {
 		}
 	}
 	
+	//Create user account (must add user information using addUserInfo())
 	public static void createUser(String username, String password) throws SQLException
 	{
 		query = "CREATE USER " + username + " IDENTIFIED BY " + "'" + password + "';";
@@ -65,6 +66,7 @@ public class EventDB {
 		st.executeBatch();
 	}
 	
+	//Adds information for existing user account
 	public static void addUserInfo(String username, String firstName,
 			String lastName, String password, String email) throws SQLException
 	{
@@ -77,11 +79,19 @@ public class EventDB {
 		st.executeUpdate(query);
 	}
 	
-	public static void deleteUser(String username) throws SQLException
+	//Deletes user information, not the actual user account
+	public static void deleteUserInfo(String username) throws SQLException
 	{
 		query = "DELETE FROM user " + 
 				"WHERE username=" + "'" + username + "'";
 		
+		st.executeUpdate(query);
+	}
+	
+	//Delete a user account
+	public static void deleteUser(String username) throws SQLException
+	{
+		query ="DROP USER IF EXISTS '" + username + "'@'%'";
 		st.executeUpdate(query);
 	}
 	
@@ -115,6 +125,7 @@ public class EventDB {
 		
 	}
 	
+	//Get the username used to log in
 	public static String getCurrentUser() throws SQLException
 	{
 		query = "SELECT current_user";
