@@ -7,26 +7,26 @@ public class createEvent
 	public static void showMenu() 
 	{
 		Scanner input = new Scanner(System.in);
-		System.out.println("============================");
+		System.out.println("===========================================");
 		
-		System.out.print("Enter The Name Of The Event: ");
-		String eventName = input.next();
-		
+		System.out.println("Enter The Name Of The Event: ");
+		String eventName = input.nextLine();
 		System.out.print("Enter A Description For The Event: ");
-		String eventDesc = input.next();
+		String eventDesc = input.nextLine();
 		
 		System.out.print("Enter The Type Of Event: ");
-		String eventType = input.next();
+		String eventType = input.nextLine();
 		
 		System.out.print("Enter The Location For The Event: ");
-		String eventLocation = input.next();
+		String eventLocation = input.nextLine();
 		
 		System.out.print("Enter The Price Of Tickets: ");
 		Double eventPrice = input.nextDouble(); 
 		
 		
 		/*EventDate Start block */
-		System.out.println("Enter The Start Date Of The Event ");
+		System.out.println("============================");
+		System.out.println("*Enter The Start Date Of The Event*");
 		System.out.println("============================");
 		System.out.print("Enter Start Date Year: ");
 		int eventStartYear = input.nextInt();
@@ -42,7 +42,7 @@ public class createEvent
 		
 		
 		/*EventDate End block */
-		System.out.println("Enter The End Date Of The Event ");
+		System.out.println("*Enter The End Date Of The Event*");
 		System.out.println("============================");
 		System.out.print("Enter End Date Year: ");
 		int eventEndYear = input.nextInt();
@@ -55,13 +55,14 @@ public class createEvent
 		System.out.print("Enter End Date Minute: ");
 		int eventEndMinute = input.nextInt();
 		System.out.println("============================");
+		System.out.println("");//Added space to look better
 		
 		
 		
 		
 		System.out.print("Enter The Capacity Of The Event: ");
 		int eventCapacity = input.nextInt();
-		System.out.println("============================");
+		System.out.println("===========================================");
 		
 		Event newEvent = new Event();
 		newEvent.setEventName(eventName);
@@ -73,7 +74,7 @@ public class createEvent
 		newEvent.setStartDateTime(eventStartYear,eventStartMonth,eventStartDay,eventStartHour,eventStartMinute);
 		newEvent.setEndDateTime(eventEndYear,eventEndMonth,eventEndDay,eventEndHour,eventEndMinute);
 		
-		// TODO: add user to database
+		// TODO: add event to database
 		
 		Home.showMenu();
 	}
