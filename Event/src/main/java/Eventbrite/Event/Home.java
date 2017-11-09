@@ -43,7 +43,7 @@ public class Home {
 		System.out.println();
 		int userOption = input.nextInt();
 		
-		if(userOption >= 1 && userOption <=4) {
+		if(userOption >= 1 && userOption <=5) {
 			switch(userOption) {
 				case(1): {
 					//signUpPage newSignUp = new signUpPage();
