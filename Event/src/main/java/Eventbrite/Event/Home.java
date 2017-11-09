@@ -69,5 +69,45 @@ public class Home {
 		}
 		
 	}
+	
+public static void showMenu(String uName, String pWord) {
+		
+		System.out.println("===========================================");
+		System.out.println("Select An Option                           ");
+		System.out.println("1: Browse Events                           ");
+		System.out.println("2: Log Out                                 ");
+		System.out.println("3: Exit Application                        ");
+		System.out.println("===========================================");
+		
+		input = new Scanner(System.in);
+		System.out.println();
+		System.out.print("Enter The Option Number: ");
+		System.out.println();
+		int userOption = input.nextInt();
+		
+		if(userOption >= 1 && userOption <= 3) {
+			switch(userOption) {
+				case(1): {
+					//signUpPage newSignUp = new signUpPage();
+					EventBrowser.showMenu(uName, pWord);
+					break;
+				}
+				case(2): {
+					//loginPage newLogin = new loginPage();
+					loginPage.showMenu();
+					break;
+				}
+				case(3): {
+					//EventBrowser new1 = new EventBrowser();
+					return;	
+				}
+				default:
+					// DO NOTHING
+			}
+			
+				
+		}
+		
+	}
 
 }

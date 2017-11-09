@@ -16,8 +16,15 @@ public class loginPage {
 		String password = input.next();
 		System.out.println("===================================");
 		
-		
-		Home.showMenu();
+		//if user exists
+		try {
+			EventDB.getConnection(username, password);
+		}
+		catch(Exception e) {
+			System.out.println("EXCEPTION: " + e.getMessage());
+			Home.showMenu();
+		}
+		Home.showMenu(username, password);
 	}
 
 }
