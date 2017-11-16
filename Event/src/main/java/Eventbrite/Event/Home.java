@@ -94,7 +94,7 @@ public static void showMenu(String uName, String pWord) {
 				}
 				case(2): {
 					//loginPage newLogin = new loginPage();
-					loginPage.showMenu();
+					LogOutPage.logout();
 					break;
 				}
 				case(3): {

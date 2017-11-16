@@ -1,6 +1,7 @@
 package Eventbrite.Event;
 
 import java.sql.*;
+import java.util.Calendar;
 
 public class EventDB {
 	static private String connectionString = "jdbc:mysql://localhost:3306/eventbritedb";
@@ -120,8 +121,13 @@ public class EventDB {
 		return "";
 	}
 	
-	public static void createEvent() throws SQLException
+	//fdflkdsajfkldsjflkdsjflk
+	public static void createEvent(String eventName, String location, Calendar startDateTime,
+			String type, Calendar endDateTime, double ticketPrice, int capacity, String host) throws SQLException
 	{
+		query = "INSERT INTO event (eventName, location, startDateTime, type, type, endDateTime, ticketprice, capacity, host) values ('"
+				+ eventName + "', '" + location + "', " + "";
+				
 		
 	}
 	

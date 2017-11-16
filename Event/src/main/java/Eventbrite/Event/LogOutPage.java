@@ -1,7 +1,7 @@
 package Eventbrite.Event;
 
 public class LogOutPage {
-	public static void maon(String[] args) {
+	public static void logout() {
 		EventDB.closeConnection();
 		Home.showMenu();
 	}
