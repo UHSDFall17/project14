@@ -46,12 +46,10 @@ public class Home {
 		if(userOption >= 1 && userOption <=5) {
 			switch(userOption) {
 				case(1): {
-					//signUpPage newSignUp = new signUpPage();
 					signUpPage.showMenu();
 					break;
 				}
 				case(2): {
-					//loginPage newLogin = new loginPage();
 					loginPage.showMenu();
 					break;
 				}
@@ -95,12 +93,10 @@ public static void showMenu(String uName, String pWord) {
 		if(userOption >= 1 && userOption <= 5) {
 			switch(userOption) {
 				case(1): {
-					//signUpPage newSignUp = new signUpPage();
 					EventBrowser.showMenu(uName, pWord);
 					break;
 				}
 				case(2): {
-					//loginPage newLogin = new loginPage();
 					LogOutPage.logout();
 					break;
 				}
