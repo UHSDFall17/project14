@@ -32,8 +32,9 @@ public class Home {
 		System.out.println("Select An Option                           ");
 		System.out.println("1: Sign Up                                 ");
 		System.out.println("2: Log In                                  ");
-		System.out.println("3: Browse Events                           ");
-		System.out.println("4: Exit Application                        ");
+		System.out.println("3: Search Events                           ");
+		System.out.println("4: Create an Event                         ");
+		System.out.println("5: Exit Application                        ");
 		System.out.println("===========================================");
 		
 		input = new Scanner(System.in);
@@ -42,7 +43,7 @@ public class Home {
 		System.out.println();
 		int userOption = input.nextInt();
 		
-		if(userOption >= 1 && userOption <=4) {
+		if(userOption >= 1 && userOption <=5) {
 			switch(userOption) {
 				case(1): {
 					//signUpPage newSignUp = new signUpPage();
@@ -55,10 +56,14 @@ public class Home {
 					break;
 				}
 				case(3): {
-					//EventBrowser new1 = new EventBrowser();
+					searchEvent.showMenu();
 					break;
 				}
 				case(4): {
+					createEvent.showMenu();
+					break;
+				}
+				case(5): {
 					return;
 				}
 				default:
