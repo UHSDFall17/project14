@@ -81,7 +81,9 @@ public static void showMenu(String uName, String pWord) {
 		System.out.println("Select An Option                           ");
 		System.out.println("1: Browse Events                           ");
 		System.out.println("2: Log Out                                 ");
-		System.out.println("3: Exit Application                        ");
+		System.out.println("3: Search Events                           ");
+		System.out.println("4: Create an Event                         ");
+		System.out.println("5: Exit Application                        ");
 		System.out.println("===========================================");
 		
 		input = new Scanner(System.in);
@@ -90,7 +92,7 @@ public static void showMenu(String uName, String pWord) {
 		System.out.println();
 		int userOption = input.nextInt();
 		
-		if(userOption >= 1 && userOption <= 3) {
+		if(userOption >= 1 && userOption <= 5) {
 			switch(userOption) {
 				case(1): {
 					//signUpPage newSignUp = new signUpPage();
@@ -103,8 +105,15 @@ public static void showMenu(String uName, String pWord) {
 					break;
 				}
 				case(3): {
-					//EventBrowser new1 = new EventBrowser();
-					return;	
+					searchEvent.showMenu();
+					break;
+				}
+				case(4): {
+					createEvent.showMenu();
+					break;
+				}
+				case(5): {
+					return;
 				}
 				default:
 					// DO NOTHING
