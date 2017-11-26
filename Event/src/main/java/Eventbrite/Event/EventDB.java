@@ -74,7 +74,7 @@ public class EventDB {
 		// SQL statements
 		query = "INSERT INTO user"
 				+ " VALUES ('" + username + "','" + firstName + "','" + lastName + "','" + password +
-				"','" + email + "')";
+				"','" + email + "',0,0)";
 
 		// Execute SQL statements in the MySQL server.
 		st.executeUpdate(query);
@@ -121,6 +121,7 @@ public class EventDB {
 		return "";
 	}
 	
+	
 	public static void createEvent(String eventName, String location, Calendar startDateTime,
 			String type, Calendar endDateTime, double ticketPrice, int capacity, String host, int ticketsRemaining,
 			String description) throws SQLException
@@ -138,6 +139,7 @@ public class EventDB {
 		
 	}
 	
+	// Set user to corporate
 	public static void setCorporate(String username, boolean isCorporate) throws SQLException
 	{
 		query = "UPDATE user SET isCorporate=";
@@ -151,6 +153,7 @@ public class EventDB {
 		
 	}
 	
+	// Returns true if user is a corporate user, false if otherwise.
 	public static boolean isCorporate(String username) throws SQLException
 	{
 		query = "SELECT isCorporate FROM user WHERE username='" + username + "'";
@@ -166,6 +169,7 @@ public class EventDB {
 		
 	}
 	
+	// Give a user admin rights.
 	public static void setAdmin(String username, boolean isAdmin) throws SQLException
 	{
 		query = "UPDATE user SET isAdmin=";
@@ -178,6 +182,8 @@ public class EventDB {
 		st.executeUpdate(query);
 	}
 	
+	
+	// Returns true if user is an admin, false if otherwise.
 	public static boolean isAdmin(String username) throws SQLException
 	{
 		query = "SELECT isAdmin FROM user WHERE username='" + username + "'";

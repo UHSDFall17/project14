@@ -25,7 +25,8 @@ public class signUpPage {
 		User newUser = new User(firstName, lastName, username, password, email, false, false);
 		// TODO: add user to database
 		try {
-			EventDB.createUser(username, password);
+			EventDB.createUser(newUser.getUsername(), newUser.getPassword());
+			EventDB.addUserInfo(newUser.getUsername(), newUser.getFirstName(), newUser.getLastName(), newUser.getPassword(), newUser.getEmail());
 		}
 		catch(Exception e) {
 			System.out.println("EXCEPTION: " + e.getMessage());
