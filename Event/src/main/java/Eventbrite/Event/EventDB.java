@@ -151,6 +151,21 @@ public class EventDB {
 		
 	}
 	
+	public static boolean isCorporate(String username) throws SQLException
+	{
+		query = "SELECT isCorporate FROM user WHERE username='" + username + "'";
+		result = st.executeQuery(query);
+		if(result.next())
+		{
+			if(result.getInt(1) == 1)
+				return true;
+			else
+				return false;
+		}
+		return false;
+		
+	}
+	
 	public static void setAdmin(String username, boolean isAdmin) throws SQLException
 	{
 		query = "UPDATE user SET isAdmin=";
@@ -167,12 +182,14 @@ public class EventDB {
 	{
 		query = "SELECT isAdmin FROM user WHERE username='" + username + "'";
 		result = st.executeQuery(query);
-		result.next();
-		if(result.getInt(1) == 1) {
-			return true;
+		if(result.next()) {
+			if(result.getInt(1) == 1) {
+				return true;
+			}
+			else
+				return false;
 		}
-		else
-			return false;
+		return false;
 		
 	}
 	
