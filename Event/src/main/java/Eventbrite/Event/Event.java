@@ -77,12 +77,12 @@ public class Event
 
 	public void setStartDateTime(int year, int month, int day, int hour, int minute)
 	{
-		startDateTime.set(year,month,day,hour,minute);
+		startDateTime.set(year-1,month,day,hour,minute);
 	}
 	
 	public void setEndDateTime(int year, int month, int day, int hour, int minute)
 	{
-		endDateTime.set(year,month,day,hour,minute);
+		endDateTime.set(year-1,month,day,hour,minute);
 	}
 	
 	public void setLocation(String location)

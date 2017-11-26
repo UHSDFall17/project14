@@ -123,11 +123,19 @@ public class EventDB {
 	
 	//fdflkdsajfkldsjflkdsjflk
 	public static void createEvent(String eventName, String location, Calendar startDateTime,
-			String type, Calendar endDateTime, double ticketPrice, int capacity, String host) throws SQLException
+			String type, Calendar endDateTime, double ticketPrice, int capacity, String host, int ticketsRemaining,
+			String description) throws SQLException
 	{
-		query = "INSERT INTO event (eventName, location, startDateTime, type, type, endDateTime, ticketprice, capacity, host) values ('"
-				+ eventName + "', '" + location + "', " + "";
+		query = "INSERT INTO event (eventName, location, startDateTime, type, endDateTime, ticketPrice, capacity, host, ticketsRemaining, "
+				+ "description) values ('"
+				+ eventName + "','" + location + "','" + startDateTime.get(Calendar.YEAR) + '-' + startDateTime.get(Calendar.MONTH) + '-' +
+				startDateTime.get(Calendar.DAY_OF_MONTH) + ' ' + startDateTime.get(Calendar.HOUR_OF_DAY) + ':' + startDateTime.get(Calendar.MINUTE) + 
+				":00', '" + type + "','" + endDateTime.get(Calendar.YEAR) + '-' + endDateTime.get(Calendar.MONTH) + '-' + endDateTime.get(Calendar.DAY_OF_MONTH) +
+				' ' + endDateTime.get(Calendar.HOUR_OF_DAY) + ':' + endDateTime.get(Calendar.MINUTE) + ":00'," + ticketPrice + 
+				',' + capacity + ",'" + host + "'," + ticketsRemaining + ",'" + description + "')";
+		System.out.println(query);
 				
+		st.executeUpdate(query);
 		
 	}
 	
