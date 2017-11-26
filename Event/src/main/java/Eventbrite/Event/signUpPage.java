@@ -22,7 +22,7 @@ public class signUpPage {
 		System.out.println("============================");
 		
 		
-		User newUser = new User(firstName, lastName, username, password, email, false);
+		User newUser = new User(firstName, lastName, username, password, email, false, false);
 		// TODO: add user to database
 		try {
 			EventDB.createUser(username, password);

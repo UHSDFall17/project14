@@ -11,13 +11,14 @@ public class User {
 		
 	}
 	
-	public User(String first, String last, String userName, String pw, String emailAddress, boolean corp) {
+	public User(String first, String last, String userName, String pw, String emailAddress, boolean corp, boolean admin) {
 		username = userName;
 		password = pw;
 		firstName = first;
 		lastName = last;
 		email = emailAddress;
 		corporate = corp;
+		adminRights = admin;
 	}
 	
 	public String getFirstName()

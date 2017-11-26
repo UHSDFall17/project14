@@ -151,6 +151,31 @@ public class EventDB {
 		
 	}
 	
+	public static void setAdmin(String username, boolean isAdmin) throws SQLException
+	{
+		query = "UPDATE user SET isAdmin=";
+		if(isAdmin)
+			query += 1;
+		else
+			query += 0;
+		
+		query += " WHERE username='" + username + "'";
+		st.executeUpdate(query);
+	}
+	
+	public static boolean isAdmin(String username) throws SQLException
+	{
+		query = "SELECT isAdmin FROM user WHERE username='" + username + "'";
+		result = st.executeQuery(query);
+		result.next();
+		if(result.getInt(1) == 1) {
+			return true;
+		}
+		else
+			return false;
+		
+	}
+	
 	
 	//Get the username used to log in
 	public static String getCurrentUser() throws SQLException
