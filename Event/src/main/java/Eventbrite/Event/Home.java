@@ -18,7 +18,6 @@ public class Home {
 //		System.out.println(EventDB.getCurrentUser());
 //		EventDB.deleteUser("test3");
 //		EventDB.deleteUserInfo("junit4");
-
 		}
 		catch(Exception e) {
 			System.out.println(e.getMessage());

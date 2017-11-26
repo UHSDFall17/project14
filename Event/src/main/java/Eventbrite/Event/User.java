@@ -4,19 +4,20 @@ package Eventbrite.Event;
 
 public class User {
 	private String firstName, lastName, username, password, email;
-	private Boolean adminRights;
+	private boolean adminRights, corporate;
 	
 	public User()
 	{
 		
 	}
 	
-	public User(String first, String last, String userName, String pw, String emailAddress) {
+	public User(String first, String last, String userName, String pw, String emailAddress, boolean corp) {
 		username = userName;
 		password = pw;
 		firstName = first;
 		lastName = last;
 		email = emailAddress;
+		corporate = corp;
 	}
 	
 	public String getFirstName()
@@ -47,6 +48,10 @@ public class User {
 	public Boolean getAdminRights()
 	{
 		return adminRights;
+	}
+	
+	public Boolean isCorporate() {
+		return corporate;
 	}
 	
 	public void setFirstName(String firstName)

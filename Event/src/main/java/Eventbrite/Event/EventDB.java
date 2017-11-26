@@ -121,7 +121,6 @@ public class EventDB {
 		return "";
 	}
 	
-	//fdflkdsajfkldsjflkdsjflk
 	public static void createEvent(String eventName, String location, Calendar startDateTime,
 			String type, Calendar endDateTime, double ticketPrice, int capacity, String host, int ticketsRemaining,
 			String description) throws SQLException
@@ -138,6 +137,20 @@ public class EventDB {
 		st.executeUpdate(query);
 		
 	}
+	
+	public static void setCorporate(String username, boolean isCorporate) throws SQLException
+	{
+		query = "UPDATE user SET isCorporate=";
+		if(isCorporate)
+			query += 1;
+		else
+			query += 0;
+		
+		query += " WHERE username='" + username + "'";
+		st.executeUpdate(query);
+		
+	}
+	
 	
 	//Get the username used to log in
 	public static String getCurrentUser() throws SQLException
