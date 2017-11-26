@@ -19,7 +19,7 @@ public class Home {
 //			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //			System.out.println(e.getEventID());
 //			System.out.println(e.getEventName());
-//
+//			System.out.println(e.getEventType());
 //			System.out.println(e.getDescription());
 //			System.out.println(e.getCapacity());
 //			System.out.println(e.getHostName());
