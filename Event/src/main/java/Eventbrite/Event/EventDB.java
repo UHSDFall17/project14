@@ -1,6 +1,8 @@
 package Eventbrite.Event;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class EventDB {
@@ -133,9 +135,41 @@ public class EventDB {
 				":00', '" + type + "','" + endDateTime.get(Calendar.YEAR) + '-' + endDateTime.get(Calendar.MONTH) + '-' + endDateTime.get(Calendar.DAY_OF_MONTH) +
 				' ' + endDateTime.get(Calendar.HOUR_OF_DAY) + ':' + endDateTime.get(Calendar.MINUTE) + ":00'," + ticketPrice + 
 				',' + capacity + ",'" + host + "'," + ticketsRemaining + ",'" + description + "')";
-		System.out.println(query);
 				
 		st.executeUpdate(query);
+		
+	}
+	
+	public static ArrayList<Event> getEvents() throws SQLException
+	{
+		ArrayList<Event> events = new ArrayList<Event>();
+		query = "SELECT * FROM event";
+		User tempUser;
+		String hostName = "";
+		
+		result = st.executeQuery(query);
+		while(result.next())
+		{
+
+			Event tempEvent = new Event();
+			tempEvent.setEventID(result.getInt("id"));
+			tempEvent.setEventName(result.getString("eventName"));
+			tempEvent.setLocation(result.getString("location"));
+			tempEvent.setStartDateTime(result.getTimestamp("startDateTime"));
+			tempEvent.setEventType(result.getString("type"));
+			tempEvent.setEndDateTime(result.getTimestamp("endDateTime"));
+			tempEvent.setTicketPrice(result.getDouble("ticketPrice"));
+			tempEvent.setCapacity(result.getInt("capacity"));
+			tempEvent.setHostName(result.getString("host"));
+			tempEvent.setTicketsRemaining(result.getInt("ticketsRemaining"));
+			tempEvent.setDescription(result.getString("description"));
+			
+			events.add(tempEvent);
+			
+		}
+		
+		return events;
+		
 		
 	}
 	

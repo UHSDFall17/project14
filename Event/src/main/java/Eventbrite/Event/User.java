@@ -11,6 +11,13 @@ public class User {
 		
 	}
 	
+	public User(String first, String last, String uName)
+	{
+		firstName = first;
+		lastName = last;
+		username = uName;
+	}
+	
 	public User(String first, String last, String userName, String pw, String emailAddress, boolean corp, boolean admin) {
 		username = userName;
 		password = pw;

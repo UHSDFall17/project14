@@ -2,22 +2,52 @@ package Eventbrite.Event;
 
 
 import java.util.Calendar;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 public class Event 
 {
-	private String eventName, location, description, eventType;
+	private String eventName, location, description, eventType, startDateTimeString, endDateTimeString, hostName;
 	private Calendar startDateTime;
 	private Calendar endDateTime;
 	private double ticketPrice;
-	private int capacity;								//total capacity of event
+	private int capacity, eventID, ticketsRemaining;
 	private User host;
-	private Boolean inviteOnly;
 	
 	public Event()
 	{
 		startDateTime = Calendar.getInstance();
 		endDateTime = Calendar.getInstance();
+	}
+	
+	public void setStartDateTime(Timestamp startDateTime)
+	{
+		this.startDateTime.setTime(startDateTime);
+	}
+	
+	public void setEndDateTime(Timestamp endDateTime)
+	{
+		this.endDateTime.setTime(endDateTime);
+	}
+	
+	public int getEventID()
+	{
+		return eventID;
+	}
+	
+	public void setEventID(int eventID)
+	{
+		this.eventID = eventID;
+	}
+	
+	public void setTicketsRemaining(int ticketsRemaining)
+	{
+		this.ticketsRemaining = ticketsRemaining;
+	}
+	
+	public int getTicketsRemaining()
+	{
+		return ticketsRemaining;
 	}
 	
 	public String getEventName()
@@ -48,11 +78,6 @@ public class Event
 	public User getHost()
 	{
 		return host;
-	}
-	
-	public Boolean inviteOnly()
-	{
-		return inviteOnly;
 	}
 	
 	public int getCapacity()
@@ -111,14 +136,17 @@ public class Event
 		this.capacity = capacity;
 	}
 	
-	public void setInviteOnly(Boolean inviteOnly)
-	{
-		this.inviteOnly = inviteOnly;
-	}
-	
 	public void setEventType(String eventType)
 	{
 		this.eventType = eventType;
+	}
+
+	public String getHostName() {
+		return hostName;
+	}
+
+	public void setHostName(String hostName) {
+		this.hostName = hostName;
 	}
 	
 }

@@ -1,7 +1,24 @@
 package Eventbrite.Event;
 
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Random;
+
+
+/*HOW TO DISPLAY EVENTS:
+ * 		ArrayList<Event> events = EventDB.getEvents();
+		for(Event e : events) {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			System.out.println(e.getEventID());
+			System.out.println(e.getEventName());
+
+			System.out.println(e.getDescription());
+			System.out.println(e.getCapacity());
+			System.out.println(e.getHost());
+			System.out.println(e.getLocation());
+			System.out.println(sdf.format(e.getStartDateTime().getTime()));
+		}*/
 
 public class EventBrowser 
 {
