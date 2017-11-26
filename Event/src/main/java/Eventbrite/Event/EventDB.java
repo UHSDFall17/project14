@@ -98,6 +98,7 @@ public class EventDB {
 		st.executeUpdate(query);
 	}
 	
+	// Returns a String of the first name of a specified user.
 	public static String getFirstName(String username) throws SQLException
 	{
 		query = "SELECT firstName FROM user WHERE username=" + "'" + username + "'";
@@ -111,6 +112,7 @@ public class EventDB {
 		return "";
 	}
 	
+	// Returns a String of the last name of a specified user.
 	public static String getLastName(String username) throws SQLException
 	{
 		query = "SELECT lastName FROM user WHERE username=" + "'" + username + "'";
@@ -123,7 +125,7 @@ public class EventDB {
 		return "";
 	}
 	
-	
+	// Create an event.
 	public static void createEvent(String eventName, String location, Calendar startDateTime,
 			String type, Calendar endDateTime, double ticketPrice, int capacity, String host, int ticketsRemaining,
 			String description) throws SQLException
@@ -140,6 +142,7 @@ public class EventDB {
 		
 	}
 	
+	// Returns an ArrayList of all events.
 	public static ArrayList<Event> getEvents() throws SQLException
 	{
 		ArrayList<Event> events = new ArrayList<Event>();
@@ -171,6 +174,7 @@ public class EventDB {
 		
 	}
 	
+	//Returns an ArrayList of events of the specified eventType.
 	public static ArrayList<Event> getEvents(String eventType) throws SQLException
 	{
 		ArrayList<Event> events = new ArrayList<Event>();
@@ -202,6 +206,7 @@ public class EventDB {
 		
 	}
 	
+	// Returns an ArrayList of Events sorted by price.
 	public static ArrayList<Event> getEventsByPrice() throws SQLException
 	{
 		ArrayList<Event> events = new ArrayList<Event>();
@@ -233,6 +238,7 @@ public class EventDB {
 		
 	}
 	
+	// Returns an ArrayList of events of a specific event type, sorted by price.
 	public static ArrayList<Event> getEventsByPrice(String eventType) throws SQLException
 	{
 		ArrayList<Event> events = new ArrayList<Event>();
@@ -266,7 +272,7 @@ public class EventDB {
 	
 	
 	
-	// Set user to corporate
+	// Set user to corporate.
 	public static void setCorporate(String username, boolean isCorporate) throws SQLException
 	{
 		query = "UPDATE user SET isCorporate=";
@@ -327,7 +333,7 @@ public class EventDB {
 	}
 	
 	
-	//Get the username used to log in
+	//Get the username used to log in.
 	public static String getCurrentUser() throws SQLException
 	{
 		query = "SELECT current_user";
