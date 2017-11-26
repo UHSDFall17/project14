@@ -15,7 +15,7 @@ import java.util.Random;
 
 			System.out.println(e.getDescription());
 			System.out.println(e.getCapacity());
-			System.out.println(e.getHost());
+			System.out.println(e.getHostName());
 			System.out.println(e.getLocation());
 			System.out.println(sdf.format(e.getStartDateTime().getTime()));
 		}*/

@@ -167,9 +167,38 @@ public class EventDB {
 			events.add(tempEvent);
 			
 		}
-		
 		return events;
 		
+	}
+	
+	public static ArrayList<Event> getEvents(String eventType) throws SQLException
+	{
+		ArrayList<Event> events = new ArrayList<Event>();
+		query = "SELECT * FROM event WHERE type='" + eventType + "'";
+		User tempUser;
+		String hostName = "";
+		
+		result = st.executeQuery(query);
+		while(result.next())
+		{
+
+			Event tempEvent = new Event();
+			tempEvent.setEventID(result.getInt("id"));
+			tempEvent.setEventName(result.getString("eventName"));
+			tempEvent.setLocation(result.getString("location"));
+			tempEvent.setStartDateTime(result.getTimestamp("startDateTime"));
+			tempEvent.setEventType(result.getString("type"));
+			tempEvent.setEndDateTime(result.getTimestamp("endDateTime"));
+			tempEvent.setTicketPrice(result.getDouble("ticketPrice"));
+			tempEvent.setCapacity(result.getInt("capacity"));
+			tempEvent.setHostName(result.getString("host"));
+			tempEvent.setTicketsRemaining(result.getInt("ticketsRemaining"));
+			tempEvent.setDescription(result.getString("description"));
+			
+			events.add(tempEvent);
+			
+		}
+		return events;
 		
 	}
 	
