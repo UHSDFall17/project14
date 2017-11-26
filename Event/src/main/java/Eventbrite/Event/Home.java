@@ -13,12 +13,20 @@ public class Home {
 		//for testing EventDB	
 		try {
 		EventDB.getConnection("guest","guest");
-//		EventDB.createUser("test6", "test6");
-//		EventDB.addUserInfo("root", "bobbito", "bobberito", "root", "abcd@abcedef.com");
-//		System.out.println(EventDB.getFirstName("test6"));
-//		System.out.println(EventDB.getCurrentUser());
-//		EventDB.deleteUser("test3");
-//		EventDB.deleteUserInfo("junit4");
+		
+//		ArrayList<Event> events = EventDB.getEventsByPrice();
+//		for(Event e : events) {
+//			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//			System.out.println(e.getEventID());
+//			System.out.println(e.getEventName());
+//
+//			System.out.println(e.getDescription());
+//			System.out.println(e.getCapacity());
+//			System.out.println(e.getHostName());
+//			System.out.println(e.getLocation());
+//			System.out.println(sdf.format(e.getStartDateTime().getTime()));
+//			System.out.println(e.getTicketPrice());
+//		}
 		}
 		catch(Exception e) {
 			System.out.println(e.getMessage());
