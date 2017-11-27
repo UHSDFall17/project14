@@ -450,5 +450,25 @@ public class EventDB {
 		return events;
 		
 	}
+	
+	public static boolean dateHasPassed(int eventID) throws SQLException
+	{
+		query = "SELECT * FROM eventbritedb.event WHERE id=" + eventID + " AND now() < startDateTime";
+		result = st.executeQuery(query);
+		if(result.next())
+			return false;
+		else
+			return true;
+	}
+	
+	public static boolean hasCapacity(int eventID) throws SQLException
+	{
+		query = "SELECT * FROM eventbritedb.event WHERE id=" + eventID + " AND ticketsRemaining > 0";
+		result = st.executeQuery(query);
+		if(result.next())
+			return true;
+		else
+			return false;
+	}
 
 }
