@@ -470,5 +470,11 @@ public class EventDB {
 		else
 			return false;
 	}
+	
+	public static void registerForEvent(String username, int eventID) throws SQLException
+	{
+		query = "INSERT INTO eventbritedb.attends (username, eventID) VALUES ('" + username + "'," + eventID + ")";
+		st.executeUpdate(query);
+	}
 
 }
