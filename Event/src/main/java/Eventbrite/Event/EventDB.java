@@ -544,5 +544,23 @@ public class EventDB {
 		
 		return user;
 	}
+	
+	public static void changeFirstName(String username, String firstName) throws SQLException
+	{
+		query = "UPDATE eventbritedb.user SET firstName='" + firstName + "' WHERE username='" + username + "'";
+		st.executeUpdate(query);
+	}
+	
+	public static void changeLastName(String username, String lastName) throws SQLException
+	{
+		query = "UPDATE eventbritedb.user SET lastName='" + lastName + "' WHERE username='" + username + "'";
+		st.executeUpdate(query);
+	}
+	
+	public static void changeEmail(String username, String email) throws SQLException
+	{
+		query = "UPDATE eventbritedb.user SET email='" + email + "' WHERE username='" + username + "'";
+		st.executeUpdate(query);
+	}
 
 }
