@@ -357,7 +357,18 @@ public class EventDB {
 		return username;
 	}
 	
-	
+	// Returns number of tickets remaining for an event ID.
+	public static int getTicketsRemaining(int eventID) throws SQLException
+	{
+		query = "SELECT ticketsRemaining FROM eventbritedb.event WHERE id=" + eventID;
+		result = st.executeQuery(query);
+		if(result.next()) {
+			int ticketsRemaining = result.getInt("ticketsRemaining");
+			return ticketsRemaining;
+		}
+		else
+			return -1;
+	}
 	
 	
 
