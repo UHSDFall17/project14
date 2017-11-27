@@ -562,5 +562,31 @@ public class EventDB {
 		query = "UPDATE eventbritedb.user SET email='" + email + "' WHERE username='" + username + "'";
 		st.executeUpdate(query);
 	}
+	
+	// Returns an event associated with the specified eventID.
+	public static Event getEvent(int eventID) throws SQLException
+	{
+		query = "SELECT * FROM eventbritedb.event WHERE id=" + eventID;
+		Event event = new Event();
+		result = st.executeQuery(query);
+		
+		if(result.next()) 
+		{
+			event.setEventID(result.getInt("id"));
+			event.setEventName(result.getString("eventName"));
+			event.setLocation(result.getString("location"));
+			event.setStartDateTime(result.getTimestamp("startDateTime"));
+			event.setEventType(result.getString("type"));
+			event.setEndDateTime(result.getTimestamp("endDateTime"));
+			event.setTicketPrice(result.getDouble("ticketPrice"));
+			event.setCapacity(result.getInt("capacity"));
+			event.setHostName(result.getString("host"));
+			event.setTicketsRemaining(result.getInt("ticketsRemaining"));
+			event.setDescription(result.getString("description"));
+		}
+		
+		return event;
+		
+	}
 
 }
