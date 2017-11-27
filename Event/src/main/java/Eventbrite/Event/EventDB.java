@@ -203,7 +203,7 @@ public class EventDB {
 	}
 	
 	// Returns an ArrayList of Events sorted by price.
-	public static ArrayList<Event> getEventsByPrice() throws SQLException
+	public static ArrayList<Event> getEventsSortedByPrice() throws SQLException
 	{
 		ArrayList<Event> events = new ArrayList<Event>();
 		query = "SELECT * FROM event ORDER BY ticketPrice";
@@ -233,7 +233,7 @@ public class EventDB {
 	}
 	
 	// Returns an ArrayList of events of a specific event type, sorted by price.
-	public static ArrayList<Event> getEventsByPrice(String eventType) throws SQLException
+	public static ArrayList<Event> getEventsSortedByPrice(String eventType) throws SQLException
 	{
 		ArrayList<Event> events = new ArrayList<Event>();
 		query = "SELECT * FROM event WHERE type='" + eventType + "' ORDER BY ticketPrice";
@@ -362,6 +362,7 @@ public class EventDB {
 			return -1;
 	}
 	
+	// Returns ArrayList of all events hosted by a specified username.
 	public static ArrayList<Event> getEventsByHost(String hostName) throws SQLException
 	{
 		ArrayList<Event> events = new ArrayList<Event>();
@@ -388,6 +389,66 @@ public class EventDB {
 			
 		}
 		return events;
+	}
+	
+	// Returns ArrayList of events sorted by date from earliest to latest.
+	public static ArrayList<Event> getEventsSortedByDate() throws SQLException
+	{
+		ArrayList<Event> events = new ArrayList<Event>();
+		query = "SELECT * FROM event ORDER BY startDateTime";
+		
+		result = st.executeQuery(query);
+		while(result.next())
+		{
+
+			Event tempEvent = new Event();
+			tempEvent.setEventID(result.getInt("id"));
+			tempEvent.setEventName(result.getString("eventName"));
+			tempEvent.setLocation(result.getString("location"));
+			tempEvent.setStartDateTime(result.getTimestamp("startDateTime"));
+			tempEvent.setEventType(result.getString("type"));
+			tempEvent.setEndDateTime(result.getTimestamp("endDateTime"));
+			tempEvent.setTicketPrice(result.getDouble("ticketPrice"));
+			tempEvent.setCapacity(result.getInt("capacity"));
+			tempEvent.setHostName(result.getString("host"));
+			tempEvent.setTicketsRemaining(result.getInt("ticketsRemaining"));
+			tempEvent.setDescription(result.getString("description"));
+			
+			events.add(tempEvent);
+			
+		}
+		return events;
+		
+	}
+	
+	// Returns ArrayList of events of a specified event type, sorted by date.
+	public static ArrayList<Event> getEventsSortedByDate(String eventType) throws SQLException
+	{
+		ArrayList<Event> events = new ArrayList<Event>();
+		query = "SELECT * FROM event WHERE type='" + eventType + "' ORDER BY startDateTime";
+		
+		result = st.executeQuery(query);
+		while(result.next())
+		{
+
+			Event tempEvent = new Event();
+			tempEvent.setEventID(result.getInt("id"));
+			tempEvent.setEventName(result.getString("eventName"));
+			tempEvent.setLocation(result.getString("location"));
+			tempEvent.setStartDateTime(result.getTimestamp("startDateTime"));
+			tempEvent.setEventType(result.getString("type"));
+			tempEvent.setEndDateTime(result.getTimestamp("endDateTime"));
+			tempEvent.setTicketPrice(result.getDouble("ticketPrice"));
+			tempEvent.setCapacity(result.getInt("capacity"));
+			tempEvent.setHostName(result.getString("host"));
+			tempEvent.setTicketsRemaining(result.getInt("ticketsRemaining"));
+			tempEvent.setDescription(result.getString("description"));
+			
+			events.add(tempEvent);
+			
+		}
+		return events;
+		
 	}
 
 }
