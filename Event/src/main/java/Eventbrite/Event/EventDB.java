@@ -508,5 +508,41 @@ public class EventDB {
 		}
 		return events;
 	}
+	
+	// Change an event name according to the event ID.
+	public static void changeEventName(int eventID, String newEventName) throws SQLException
+	{
+		query = "UPDATE eventbritedb.event SET eventName='" + newEventName + "' WHERE id=" + eventID;
+		st.executeUpdate(query);
+	}
+	
+	// Returns a User object of the host of the specified event ID.
+	public static User getHost(int eventID) throws SQLException
+	{
+		User user = new User();
+		query = "SELECT username, firstName, lastName, password, email, isCorporate, isAdmin from eventbritedb.event, eventbritedb.user"
+				+ " WHERE id=" + eventID + " AND host=username";
+		result = st.executeQuery(query);
+		
+		if(result.next())
+		{
+			user.setUsername(result.getString("username"));
+			user.setFirstName(result.getString("firstName"));
+			user.setLastName(result.getString("lastName"));
+			user.setPassword(result.getString("password"));
+			user.setEmail(result.getString("email"));
+			if(result.getInt("isCorporate") == 1)
+				user.setCorporate(true);
+			else
+				user.setCorporate(false);
+			
+			if(result.getInt("isAdmin") == 1)
+				user.setAdminRights(true);
+			else
+				user.setAdminRights(false);
+		}
+		
+		return user;
+	}
 
 }

@@ -93,6 +93,15 @@ public class User {
 		this.adminRights = adminRights;
 	}
 	
+	public void setCorporate(Boolean corporate)
+	{
+		this.corporate = corporate;
+	}
+	
+	public boolean getCorporate()
+	{
+		return corporate;
+	}
 //	private void encryptPassword()
 //	{
 //		
