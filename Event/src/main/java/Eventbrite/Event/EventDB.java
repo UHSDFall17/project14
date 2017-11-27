@@ -451,6 +451,7 @@ public class EventDB {
 		
 	}
 	
+	// Returns true if the date of an event has already passed.
 	public static boolean dateHasPassed(int eventID) throws SQLException
 	{
 		query = "SELECT * FROM eventbritedb.event WHERE id=" + eventID + " AND now() < startDateTime";
@@ -461,6 +462,7 @@ public class EventDB {
 			return true;
 	}
 	
+	// Returns true if an event has more than 0 tickets remaining.
 	public static boolean hasCapacity(int eventID) throws SQLException
 	{
 		query = "SELECT * FROM eventbritedb.event WHERE id=" + eventID + " AND ticketsRemaining > 0";
@@ -471,10 +473,40 @@ public class EventDB {
 			return false;
 	}
 	
+	// Registers a username with an event.
 	public static void registerForEvent(String username, int eventID) throws SQLException
 	{
 		query = "INSERT INTO eventbritedb.attends (username, eventID) VALUES ('" + username + "'," + eventID + ")";
 		st.executeUpdate(query);
+	}
+	
+	// Returns the events that a username is registered for.
+	public static ArrayList<Event> getRegisteredEvents(String username) throws SQLException
+	{
+		ArrayList<Event> events = new ArrayList<Event>();
+		query = "SELECT * FROM eventbritedb.attends, eventbritedb.event WHERE username='" + username + "' AND eventID=id";
+		
+		result = st.executeQuery(query);
+		while(result.next())
+		{
+
+			Event tempEvent = new Event();
+			tempEvent.setEventID(result.getInt("id"));
+			tempEvent.setEventName(result.getString("eventName"));
+			tempEvent.setLocation(result.getString("location"));
+			tempEvent.setStartDateTime(result.getTimestamp("startDateTime"));
+			tempEvent.setEventType(result.getString("type"));
+			tempEvent.setEndDateTime(result.getTimestamp("endDateTime"));
+			tempEvent.setTicketPrice(result.getDouble("ticketPrice"));
+			tempEvent.setCapacity(result.getInt("capacity"));
+			tempEvent.setHostName(result.getString("host"));
+			tempEvent.setTicketsRemaining(result.getInt("ticketsRemaining"));
+			tempEvent.setDescription(result.getString("description"));
+			
+			events.add(tempEvent);
+			
+		}
+		return events;
 	}
 
 }

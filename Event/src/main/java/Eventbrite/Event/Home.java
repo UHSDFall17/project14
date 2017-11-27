@@ -14,7 +14,7 @@ public class Home {
 		try {
 		EventDB.getConnection("guest","guest");
 		
-//		ArrayList<Event> events = EventDB.getEventsSortedByDate("music");
+//		ArrayList<Event> events = EventDB.getRegisteredEvents("test7");
 //		for(Event e : events) {
 //			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //			System.out.println(e.getEventID());
