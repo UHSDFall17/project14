@@ -545,18 +545,21 @@ public class EventDB {
 		return user;
 	}
 	
+	// Change the first name of the specified username.
 	public static void changeFirstName(String username, String firstName) throws SQLException
 	{
 		query = "UPDATE eventbritedb.user SET firstName='" + firstName + "' WHERE username='" + username + "'";
 		st.executeUpdate(query);
 	}
 	
+	// Change the last name of the specified username.
 	public static void changeLastName(String username, String lastName) throws SQLException
 	{
 		query = "UPDATE eventbritedb.user SET lastName='" + lastName + "' WHERE username='" + username + "'";
 		st.executeUpdate(query);
 	}
 	
+	// Change the e-mail of the specified username.
 	public static void changeEmail(String username, String email) throws SQLException
 	{
 		query = "UPDATE eventbritedb.user SET email='" + email + "' WHERE username='" + username + "'";
@@ -589,10 +592,40 @@ public class EventDB {
 		
 	}
 	
+	// Returns ArrayList of all events whose start date/time have not passed
 	public static ArrayList<Event> getValidEvents() throws SQLException
 	{
 		ArrayList<Event> events = new ArrayList<Event>();
 		query = "SELECT * FROM event WHERE startDateTime > now()";
+		
+		result = st.executeQuery(query);
+		while(result.next())
+		{
+
+			Event tempEvent = new Event();
+			tempEvent.setEventID(result.getInt("id"));
+			tempEvent.setEventName(result.getString("eventName"));
+			tempEvent.setLocation(result.getString("location"));
+			tempEvent.setStartDateTime(result.getTimestamp("startDateTime"));
+			tempEvent.setEventType(result.getString("type"));
+			tempEvent.setEndDateTime(result.getTimestamp("endDateTime"));
+			tempEvent.setTicketPrice(result.getDouble("ticketPrice"));
+			tempEvent.setCapacity(result.getInt("capacity"));
+			tempEvent.setHostName(result.getString("host"));
+			tempEvent.setTicketsRemaining(result.getInt("ticketsRemaining"));
+			tempEvent.setDescription(result.getString("description"));
+			
+			events.add(tempEvent);
+			
+		}
+		return events;
+	}
+	
+	// Returns ArrayList of events of type eventType whose start date/time have not passed.
+	public static ArrayList<Event> getValidEvents(String eventType) throws SQLException
+	{
+		ArrayList<Event> events = new ArrayList<Event>();
+		query = "SELECT * FROM event WHERE startDateTime > now() AND type='" + eventType + "'";
 		
 		result = st.executeQuery(query);
 		while(result.next())
