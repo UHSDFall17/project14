@@ -649,5 +649,16 @@ public class EventDB {
 		}
 		return events;
 	}
+	
+	public static double getTicketPrice(int eventID) throws SQLException
+	{
+		query = "SELECT ticketPrice FROM eventbritedb.event WHERE id=" + eventID; 
+		result = st.executeQuery(query);
+		
+		if(result.next())
+			return result.getDouble("ticketPrice");
+		else
+			return -1;
+	}
 
 }
