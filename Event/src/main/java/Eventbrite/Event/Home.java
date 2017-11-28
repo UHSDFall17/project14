@@ -14,9 +14,14 @@ public class Home {
 		try {
 		EventDB.getConnection("guest","guest");
 		
-//		ArrayList<Event> events = EventDB.getEventsByHost("test7");
+//		Event event = new Event();
+//		event.setStartDateTime(2018, 03, 21, 23, 59);
+//		event.setEndDateTime(2018, 3, 22, 0, 0);
+//		EventDB.createEvent("Event10", "Toyota Center", event.getStartDateTime(), "Music", event.getEndDateTime(),
+//				69.69, 1000, "test7", 1000, "a descriptive description");
+//		ArrayList<Event> events = EventDB.getValidEvents();
+//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //		for(Event e : events) {
-//			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //			System.out.println(e.getEventID());
 //			System.out.println(e.getEventName());
 //			System.out.println(e.getEventType());
