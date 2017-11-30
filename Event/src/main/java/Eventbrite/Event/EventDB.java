@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class EventDB {
-	static private String connectionString = "jdbc:mysql://73.76.181.77:3306/eventbritedb";
+	static private String connectionString = "jdbc:mysql://localhost:3306/eventbritedb";
 	// Needed to establish a connection with the MySQL server.
 	static private Connection con;
 	// Takes SQL statements and executes them.
