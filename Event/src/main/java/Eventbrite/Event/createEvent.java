@@ -1,5 +1,6 @@
 package Eventbrite.Event;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class createEvent 
@@ -71,10 +72,20 @@ public class createEvent
 		newEvent.setTicketPrice(eventPrice);
 		newEvent.setDescription(eventDesc);
 		newEvent.setCapacity(eventCapacity);
+		newEvent.setTicketsRemaining(eventCapacity); //Creating an event assumes no one is currently attending
 		newEvent.setStartDateTime(eventStartYear,eventStartMonth,eventStartDay,eventStartHour,eventStartMinute);
 		newEvent.setEndDateTime(eventEndYear,eventEndMonth,eventEndDay,eventEndHour,eventEndMinute);
 		
-		// TODO: add event to database
+		
+		//Creates the event in DB
+		try {
+			EventDB.createEvent(newEvent.getEventName(), newEvent.getLocation(), newEvent.getStartDateTime(), newEvent.getEventType(), newEvent.getEndDateTime(),
+					newEvent.getTicketPrice(), newEvent.getCapacity(), "test7", newEvent.getTicketsRemaining(), newEvent.getDescription());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
 		
 		Home.showMenu();
 	}
