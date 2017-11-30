@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class EventDB {
-	static private String connectionString = "jdbc:mysql://localhost:3306/eventbritedb";
+	static private String connectionString = "jdbc:mysql://73.76.181.77:3306/eventbritedb";
 	// Needed to establish a connection with the MySQL server.
 	static private Connection con;
 	// Takes SQL statements and executes them.
@@ -232,6 +232,65 @@ public class EventDB {
 		
 	}
 	
+	
+	// Returns an ArrayList of Events sorted by EventNames.
+		public static ArrayList<Event> getEventsSortedByEventName() throws SQLException
+		{
+			ArrayList<Event> events = new ArrayList<Event>();
+			query = "SELECT * FROM event ORDER BY eventName";
+			
+			result = st.executeQuery(query);
+			while(result.next())
+			{
+
+				Event tempEvent = new Event();
+				tempEvent.setEventID(result.getInt("id"));
+				tempEvent.setEventName(result.getString("eventName"));
+				tempEvent.setLocation(result.getString("location"));
+				tempEvent.setStartDateTime(result.getTimestamp("startDateTime"));
+				tempEvent.setEventType(result.getString("type"));
+				tempEvent.setEndDateTime(result.getTimestamp("endDateTime"));
+				tempEvent.setTicketPrice(result.getDouble("ticketPrice"));
+				tempEvent.setCapacity(result.getInt("capacity"));
+				tempEvent.setHostName(result.getString("host"));
+				tempEvent.setTicketsRemaining(result.getInt("ticketsRemaining"));
+				tempEvent.setDescription(result.getString("description"));
+				
+				events.add(tempEvent);
+				
+			}
+			return events;
+			
+		}
+		
+		public static ArrayList<Event> getEventsSortedByLocation() throws SQLException
+		{
+			ArrayList<Event> events = new ArrayList<Event>();
+			query = "SELECT * FROM event ORDER BY Location";
+			
+			result = st.executeQuery(query);
+			while(result.next())
+			{
+
+				Event tempEvent = new Event();
+				tempEvent.setEventID(result.getInt("id"));
+				tempEvent.setEventName(result.getString("eventName"));
+				tempEvent.setLocation(result.getString("location"));
+				tempEvent.setStartDateTime(result.getTimestamp("startDateTime"));
+				tempEvent.setEventType(result.getString("type"));
+				tempEvent.setEndDateTime(result.getTimestamp("endDateTime"));
+				tempEvent.setTicketPrice(result.getDouble("ticketPrice"));
+				tempEvent.setCapacity(result.getInt("capacity"));
+				tempEvent.setHostName(result.getString("host"));
+				tempEvent.setTicketsRemaining(result.getInt("ticketsRemaining"));
+				tempEvent.setDescription(result.getString("description"));
+				
+				events.add(tempEvent);
+				
+			}
+			return events;
+			
+		}
 	// Returns an ArrayList of events of a specific event type, sorted by price.
 	public static ArrayList<Event> getEventsSortedByPrice(String eventType) throws SQLException
 	{
