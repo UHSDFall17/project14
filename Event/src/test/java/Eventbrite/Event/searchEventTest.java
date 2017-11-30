@@ -39,6 +39,26 @@ public class searchEventTest
 		}
 	}
 	
-	
+	@Test
+	public void testIfElseSearchStatement()
+	{
+		String searchBy = "IsHere";
+		if(searchBy.equalsIgnoreCase("search"))
+		{
+			fail();
+		}
+		else if(searchBy.equalsIgnoreCase("IsHere?"))
+		{
+			fail();
+		}
+		else if(searchBy.equalsIgnoreCase("IsHere"))
+		{
+			assertTrue(searchBy.equalsIgnoreCase("isHERE"));
+		}
+		else
+		{
+			fail();
+		}
+	}
 
 }
