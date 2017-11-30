@@ -1,4 +1,7 @@
 language: java
 script: mvn -f Event/pom.xml clean compile -DskiptTests
-
-  
+notifications:
+  email:
+    - paul.robert01@yahoo.com
+    - jfairchild@uh.edu
+    - jeremy_le1@yahoo.com
