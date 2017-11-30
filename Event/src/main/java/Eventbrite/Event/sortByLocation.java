@@ -6,7 +6,7 @@ public class sortByLocation
 {
 	public static void sortLocation()
 	{
-		System.out.println("Sorting by Price.");
+		System.out.println("Sorting by Location.");
 		ArrayList<Event> eventsName;
 		try {
 			eventsName = EventDB. getEventsSortedByLocation();
