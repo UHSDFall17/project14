@@ -6,7 +6,7 @@ public class sortByDate
 {
 	public static void sortDate()
 	{
-		System.out.println("Sorting by Price.");
+		System.out.println("Sorting by Date.");
 		ArrayList<Event> eventsName;
 		try {
 			eventsName = EventDB. getEventsSortedByDate();
