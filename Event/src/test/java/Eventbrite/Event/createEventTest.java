@@ -1,6 +1,8 @@
 package Eventbrite.Event;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
+import static org.junit.Assert.*;
+
+import java.util.Arrays;
+
 import org.junit.Test;
 public class createEventTest 
 {
@@ -23,6 +25,25 @@ public class createEventTest
 		//Asserts if price is true
 		Double eventPrice = 12.57;
 		assertSame(0, eventPrice.compareTo(12.57)); //Compare to returns 0 if equal
+	}
+	
+	
+	@Test
+	public void testEventCreated()
+	{
+		String Name = "name";
+		String eventDesc = "Description";
+		String eventType = "Type";
+		String eventLocation = "Location";
+		//Creates first array from values "input" by user
+		String[] array1 = new String[4];
+		array1[0] = Name;
+		array1[1] = eventDesc;
+		array1[2] = eventType;
+		array1[3] = eventLocation;
+		//Creates a second array to test if values equal
+		String[] array2 = {"name","Description","Type","Location"};
+		assertTrue(Arrays.equals(array1, array2));
 	}
 
 }
