@@ -33,5 +33,36 @@ public class sortByTest
 		}
 	}
 	
+	
+	@Test
+	public void testSortByLocation()
+	{ //swaps values to make test of possible if combinations
+		String[] array1 = {"name1","Description1","Type1","Location1"};
+		String[] array2 = {"name3","Description3","Type3","Location3"};
+		String[] array3 = {"name2","Description2","Type2","Location2"};
+		if(array1[3].compareTo(array2[3]) < 0)
+		{
+			if(array1[3].compareTo(array3[3]) < 0)
+			{
+				if(array2[3].compareTo(array3[3]) < 0)
+				{
+					fail(); //fails if array2 is smaller than array3
+				}
+				else
+				{
+					assertEquals("Location1",array1[3]);
+				}
+			}
+			else
+			{
+				fail(); //fails if array3 is smaller than array1
+			}
+		}
+		else
+		{
+			fail(); // fails if array2 is smaller than array1
+		}
+	}
+	
 
 }
