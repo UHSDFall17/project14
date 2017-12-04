@@ -13,25 +13,6 @@ public class Home {
 		//for testing EventDB	
 		try {
 		EventDB.getConnection("guest","guest");
-		
-//		Event event = new Event();
-//		event.setStartDateTime(2018, 03, 21, 23, 59);
-//		event.setEndDateTime(2018, 3, 22, 0, 0);
-//		EventDB.createEvent("Event10", "Toyota Center", event.getStartDateTime(), "Music", event.getEndDateTime(),
-//				69.69, 1000, "test7", 1000, "a descriptive description");
-//		ArrayList<Event> events = EventDB.getValidEvents("music");
-//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//		for(Event e : events) {
-//			System.out.println(e.getEventID());
-//			System.out.println(e.getEventName());
-//			System.out.println(e.getEventType());
-//			System.out.println(e.getDescription());
-//			System.out.println(e.getCapacity());
-//			System.out.println(e.getHostName());
-//			System.out.println(e.getLocation());
-//			System.out.println(sdf.format(e.getStartDateTime().getTime()));
-//			System.out.println(e.getTicketPrice());
-//		}
 		}
 		catch(Exception e) {
 			System.out.println(e.getMessage());
